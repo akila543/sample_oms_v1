@@ -1,0 +1,112 @@
+.LoginSegment
+{
+  height: 300px;
+   width: 75%;
+  background-color:rgba(0,0,0,0.09)!important;
+}
+.SignUpSegment
+{
+  height: 395px;
+   width: 500px;
+  background-color:rgba(0,0,0,0.09)!important;
+}
+.HeaderStyle{
+font-family: 'Cuprum', sans-serif;
+}
+.ShippingSegment
+{
+  height: 100%;
+   width: auto;
+  background-color:rgba(0,0,0,0.05)!important;
+}
+.GenderLabel
+{
+  background-color:rgba(0,0,0,0.09)!important;
+}
+.appBarModal
+{
+  font-family: 'Encode Sans Semi Condensed', sans-serif;
+}
+
+.Appbar{
+  position:fixed;
+   left:0px;
+   top:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+   z-index: 5;
+}
+.Menubar{
+  opacity: 1;
+  position:fixed;
+   left:0px;
+   top:51px;
+   height:55px;
+   width:100%;
+   z-index: 5;
+   background: #ffffff;
+}
+
+.appBarModal:hover
+{
+  color:red !important;
+}
+
+
+
+.appBarMenuItem
+{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.appBarMenuItem:hover
+{
+  color:red !important;
+}
+
+.MenuBarMenuItem
+{
+  font-family: 'Cuprum', sans-serif;
+}
+
+#menuItem
+{
+  font-family: 'Cuprum', sans-serif;
+}
+
+.MenuBarMenuItem:hover
+{
+  background-color: red !important;
+  color:white !important
+}
+.ImagePointer{
+  cursor:pointer;
+}
+.dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.ProductsCover
+{
+  background-color: white !important;
+}
+#menuItem:hover
+{
+  background-color: red !important;
+  color:white !important
+}
+
+.PosterText
+{
+  font-family: 'Acme', sans-serif;
+  position: absolute;
+   left: 20px;
+   width: 100%;
+}

@@ -1,0 +1,14 @@
+{
+  "name": "ors",
+  "version": "1.0.0",
+  "description": "order routing services",
+  "main": "orderRouting.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "prateek pandey",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^2.2.31"
+  }
+}
