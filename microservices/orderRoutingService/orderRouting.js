@@ -73,7 +73,7 @@ app.get('/ors/order', (req, res) => {
           //  console.log(dcLocDetails);
           console.log('product obj -------------- > ', productObj);
 
-          request.get('localhost:INVENTORY_PORT/inventory/check').query({dcList: JSON.stringify(dcLocDetails), productObj: productObj}).end(function(err, reqRes) {
+          request.get('/inventory/check').query({dcList: JSON.stringify(dcLocDetails), productObj: productObj}).end(function(err, reqRes) {
             var inventoryResponse = JSON.parse(reqRes.text);
             inventoryResponse.fullfilledProducts.forEach(function(element) {
               var index = finalOrder.products.findIndex((x) => x.productId == element.productId);
@@ -129,7 +129,7 @@ app.get('/ors/order', (req, res) => {
                 console.log(' lng lat - > ', lng, lat);
                 console.log('finalOrder - > ', finalOrder);
                 //call the sorted dc api
-                request.get('localhost:SORTEDDC_PORT/sortDc/ORS').query({orderId: orderId, lng: lng, lat: lat, attempt: 1}).end(function(err, sortRes) {
+                request.get('/sortDc/ORS').query({orderId: orderId, lng: lng, lat: lat, attempt: 1}).end(function(err, sortRes) {
                   //console.log('soooooooorted dc reply: ', sortRes)
                 });
 
@@ -179,7 +179,7 @@ app.get('/ors/order', (req, res) => {
               var productObj = resQueryUnfull[0].unfullfilledProd
               var attempt = resQueryUnfull[0].attempt + 1;
               //console.log(dcList, ' inside second ', typeof dcList, ' ', dcList.length)
-              request.get('localhost:INVENTORY_PORT/inventory/check').query({dcList: JSON.stringify(dcLocDetails), productObj: productObj}).end(function(err, reqRes) {
+              request.get('/inventory/check').query({dcList: JSON.stringify(dcLocDetails), productObj: productObj}).end(function(err, reqRes) {
                 var inventoryResponse = JSON.parse(reqRes.text);
                 //console.log('finalOrder:  ',finalOrder)
                 // console.log(inventoryResponse);
@@ -236,7 +236,7 @@ app.get('/ors/order', (req, res) => {
                   var lng = finalOrder.customerInfo.customerCoordinates[0],
                     lat = finalOrder.customerInfo.customerCoordinates[1]
 
-                  request.get('localhost:SORTEDDC_PORT/sortDc/ORS').query({orderId: orderId, lng: lng, lat: lat, attempt: attempt}).end(function(err, sortRes) {
+                  request.get('/sortDc/ORS').query({orderId: orderId, lng: lng, lat: lat, attempt: attempt}).end(function(err, sortRes) {
                     //console.log('soooooooorted dc reply: ', sortRes)
                   });
 

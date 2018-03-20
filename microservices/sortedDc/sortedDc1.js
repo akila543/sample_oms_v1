@@ -65,7 +65,7 @@ db.once('open', function() {
            }
            dcDetails['dcList'] = dcList;
            dcDetails['dcLocDetails']=dcLocDetails;
-           request.get('http://localhost:ORDER_PORT/ors/order')                       // sending the sorted dc's lcoation details and the respective orderId to ORS
+           request.get('/ors/order')                       // sending the sorted dc's lcoation details and the respective orderId to ORS
            .query({dcDetails : JSON.stringify(dcDetails.dcLocDetails), orderId: orderId})
            .end((err, res)=>{
              console.log('res: ',res.text);
@@ -101,7 +101,7 @@ db.once('open', function() {
         }
         dcDetails['dcList'] = dcList;
         dcDetails['dcLocDetails']=dcLocDetails;
-        request.get('http://localhost:ORDER_PORT/ors/order')                          // sending the sorted dc's lcoation details and the respective orderId to ORS
+        request.get('/ors/order')                          // sending the sorted dc's lcoation details and the respective orderId to ORS
                 .query({dcDetails : JSON.stringify(dcDetails.dcLocDetails), orderId: orderId})
                 .end((err, res)=>{
                   console.log('res: ',res.text);
