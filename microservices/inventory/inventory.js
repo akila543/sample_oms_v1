@@ -6,7 +6,7 @@ const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 // const url = 'mongodb://10.201.97.93:27017/oms'
 var url = 'mongodb://admin:admin@ds117719.mlab.com:17719/inventory';
-var PORT = process.env.PORT || 1103;
+var INVENTORY_PORT = process.env.INVENTORY_PORT || 1103;
 
 
 const app = express()
@@ -144,7 +144,7 @@ app.get('/inventory/check', (req, res) => {
   })
 })
 
-server.listen(PORT, err => {
+server.listen(INVENTORY_PORT, err => {
   if(err){
     throw err
   }

@@ -19,7 +19,7 @@ const express = require('express')
     , request = require('superagent')
     , db = require('./../../db/connections/mongo.trial.js')
     , dcSchema = require('./../../db/models/dcs.schema.js')
-    , PORT = process.env.PORT || 1101
+    , SORTEDDC_PORT = process.env.PORT || 1101
     , amqp = require('amqplib/callback_api');
 
 
@@ -65,7 +65,7 @@ db.once('open', function() {
            }
            dcDetails['dcList'] = dcList;
            dcDetails['dcLocDetails']=dcLocDetails;
-           request.get('http://localhost:1102/ors/order')                       // sending the sorted dc's lcoation details and the respective orderId to ORS
+           request.get('http://localhost:ORDER_PORT/ors/order')                       // sending the sorted dc's lcoation details and the respective orderId to ORS
            .query({dcDetails : JSON.stringify(dcDetails.dcLocDetails), orderId: orderId})
            .end((err, res)=>{
              console.log('res: ',res.text);
@@ -101,7 +101,7 @@ db.once('open', function() {
         }
         dcDetails['dcList'] = dcList;
         dcDetails['dcLocDetails']=dcLocDetails;
-        request.get('http://localhost:1102/ors/order')                          // sending the sorted dc's lcoation details and the respective orderId to ORS
+        request.get('http://localhost:ORDER_PORT/ors/order')                          // sending the sorted dc's lcoation details and the respective orderId to ORS
                 .query({dcDetails : JSON.stringify(dcDetails.dcLocDetails), orderId: orderId})
                 .end((err, res)=>{
                   console.log('res: ',res.text);
@@ -120,7 +120,7 @@ db.once('open', function() {
 
 
 // sortedDC server
-server.listen(PORT, function(err, reply){
+server.listen(SORTEDDC_PORT, function(err, reply){
   if (err) {
     console.log('server not listening!');
   } else {
