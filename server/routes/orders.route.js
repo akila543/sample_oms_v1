@@ -4,7 +4,7 @@ const orders =  require('express').Router(),
       url = 'mongodb://admin:admin@ds117759.mlab.com:17759/trial',
       idGenerator = require('./../idGenerator.js');
 
-//var amqp = require('amqplib/callback_api');
+var amqp = require('amqplib/callback_api');
 
 orders.post('/orders',function (req, res) {
   var coordinates = [req.query.lng, req.query.lat]
