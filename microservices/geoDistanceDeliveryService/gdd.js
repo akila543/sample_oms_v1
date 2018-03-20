@@ -5,7 +5,7 @@ var googleMapsClient = require('@google/maps').createClient({
 });
 
 var temp=[];
-amqp.connect('amqp://localhost', function(err, conn) {
+amqp.connect('amqp://vnjjgaat:p4GSk4IMbZLpFQBRRsRuB7B3FoDkfpt0@skunk.rmq.cloudamqp.com/vnjjgaat', function(err, conn) {
   conn.createChannel(function(err, ch) {
     var q = 'orderSatisfiedQueue1';
     ch.assertQueue(q, {durable: false});
@@ -69,7 +69,7 @@ amqp.connect('amqp://localhost', function(err, conn) {
             var cost=0;
             var id=order_details[0].orderId;
 
-            amqp.connect('amqp://localhost', function(err, conn) {
+            amqp.connect('amqp://vnjjgaat:p4GSk4IMbZLpFQBRRsRuB7B3FoDkfpt0@skunk.rmq.cloudamqp.com/vnjjgaat', function(err, conn) {
             conn.createChannel(function(err, ch) {
             var q1='finalresults';
 

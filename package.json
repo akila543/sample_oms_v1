@@ -5,12 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --hot",
-    "start": "webpack -p
-              && cd server && node ./server.js
-              && cd ./../microservices/sortedDC && node ./sortedDc1.js
-              && cd ./../microservices/orderRoutingService && node ./orderRouting.js
-              && cd ./../microservices/inventory && node ./inventory.js
-              && cd ./../microservices/geoDistanceDeliveryService && node geoDistanceDeliveryService.js"
+    "start": "webpack -p && cd server && node ./server.js && cd ./../microservices/sortedDC && node ./sortedDc1.js && cd ./orderRoutingService && node orderRouting.js && cd ./inventory && node inventory.js && cd ./geoDistanceDeliveryService && node geoDistanceDelivery.js "
   },
   "author": "",
   "license": "ISC",

@@ -1,7 +1,7 @@
 const orders =  require('express').Router(),
       request = require('superagent')
       mongodb = require('mongodb').MongoClient,
-      url = 'mongodb://localhost/trial',
+      url = 'mongodb://admin:admin@ds117759.mlab.com:17759/trial',
       idGenerator = require('./../idGenerator.js');
 
 var amqp = require('amqplib/callback_api');
@@ -16,7 +16,7 @@ orders.post('/orders',function (req, res) {
   console.log('- > ',orderId);
   mongodb.connect(url, function(err, db){
     if (err) {
-      console.log('MongoDB connection failed!');
+      console.log('MongoDB connection failed!',err);
     } else {
       console.log('Connected to DB!');
       db.collection('orders').find({}).sort({$natural:-1}).limit(1).toArray((err, docs)=>{
@@ -44,7 +44,7 @@ orders.post('/orders',function (req, res) {
                 lat: req.query.lat,
                 lng: req.query.lng
               };
-              amqp.connect('amqp://localhost:5672', function(err, conn) {
+              amqp.connect('amqp://vnjjgaat:p4GSk4IMbZLpFQBRRsRuB7B3FoDkfpt0@skunk.rmq.cloudamqp.com/vnjjgaat:5672', function(err, conn) {
                 conn.createChannel(function(err, ch) {
                   var q = 'orderQueue2';
                   var msg = orderQueueObj;
@@ -82,7 +82,7 @@ orders.post('/orders',function (req, res) {
                 lat: req.query.lat,
                 lng: req.query.lng
               };
-              amqp.connect('amqp://localhost', function(err, conn) {
+              amqp.connect('amqp://vnjjgaat:p4GSk4IMbZLpFQBRRsRuB7B3FoDkfpt0@skunk.rmq.cloudamqp.com/vnjjgaat', function(err, conn) {
                 conn.createChannel(function(err, ch) {
                   var q = 'orderQueue2';
                   var msg = orderQueueObj;

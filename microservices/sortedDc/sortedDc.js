@@ -4,7 +4,7 @@ const express = require('express')
     , server = http.createServer(app)
     , request = require('superagent')
     , mongodb = require('mongodb').MongoClient
-    , url = 'mongodb://localhost:27017/trial'
+    , url = 'mongodb://admin:admin@ds117759.mlab.com:17759/trial'
     , amqp = require('amqplib/callback_api');
 app.use(function(req, res, next) {
      res.header("Access-Control-Allow-Origin", "*");
@@ -12,7 +12,7 @@ app.use(function(req, res, next) {
      next();
      });
 // Queeeeeueeeeeeeee
-amqp.connect('amqp://localhost', function(err, conn) {
+amqp.connect('amqp://vnjjgaat:p4GSk4IMbZLpFQBRRsRuB7B3FoDkfpt0@skunk.rmq.cloudamqp.com/vnjjgaat', function(err, conn) {
   conn.createChannel(function(err, ch) {
     var q = 'orderQueue2';
     ch.assertQueue(q, {durable: false});

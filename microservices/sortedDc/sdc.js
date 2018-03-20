@@ -23,7 +23,7 @@ db.once('open', function() {
 
 
  // Queeeeeueeeeeeeee
- amqp.connect('amqp://localhost', function(err, conn) {
+ amqp.connect('amqp://vnjjgaat:p4GSk4IMbZLpFQBRRsRuB7B3FoDkfpt0@skunk.rmq.cloudamqp.com/vnjjgaat', function(err, conn) {
    conn.createChannel(function(err, ch) {
      var q = 'orderQueue2';
      ch.assertQueue(q, {durable: false});
@@ -164,7 +164,7 @@ db.once('open', function() {
 
 //
 // // Queeeeeueeeeeeeee
-// amqp.connect('amqp://localhost', function(err, conn) {
+// amqp.connect('amqp://vnjjgaat:p4GSk4IMbZLpFQBRRsRuB7B3FoDkfpt0@skunk.rmq.cloudamqp.com/vnjjgaat', function(err, conn) {
 //   conn.createChannel(function(err, ch) {
 //     var q = 'orderQueue2';
 //     ch.assertQueue(q, {durable: false});

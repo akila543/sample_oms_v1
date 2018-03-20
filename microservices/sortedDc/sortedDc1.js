@@ -38,7 +38,7 @@ db.once('open', function() {
 
  // Queue connection
  // Happy control flow of the architecture
- amqp.connect('amqp://localhost:5672', function(err, conn) {
+ amqp.connect('amqp://vnjjgaat:p4GSk4IMbZLpFQBRRsRuB7B3FoDkfpt0@skunk.rmq.cloudamqp.com/vnjjgaat:5672', function(err, conn) {
    conn.createChannel(function(err, ch) {
      var q = 'orderQueue2';
      ch.assertQueue(q, {durable: false});

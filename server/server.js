@@ -4,14 +4,11 @@ const http = require('http')
     , app = express()
     , server = http.createServer(app)
     , path = require('path')
-    , MongoClient = require('mongodb').MongoClient
     , assert = require('assert')
-    , url = 'mongodb://localhost:27017/trial'
-    , mongoose = require("mongoose")
     , PORT = process.env.PORT || 1100 ;
 //routes
- mongoose.connect('mongodb://localhost/loginapp');
-var db = mongoose.connection;
+ //mongoose.connect('mongodb://localhost/loginapp');
+//var db = mongoose.connection;
 const ordersRoute = require('./routes/orders.route.js')
     , finalResult = require('./routes/finalResult.route.js')
     , finalOrder = require('./routes/finalOrder.route.js');//This route is not used

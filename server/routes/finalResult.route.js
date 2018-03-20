@@ -6,7 +6,7 @@ finalResults.get('/finalResult', (req, res) => {
 
   console.log("inside finalresults");
 
-  amqp.connect('amqp://localhost', function(err, conn) {
+  amqp.connect('amqp://vnjjgaat:p4GSk4IMbZLpFQBRRsRuB7B3FoDkfpt0@skunk.rmq.cloudamqp.com/vnjjgaat', function(err, conn) {
     conn.createChannel(function(err, ch) {
       var q1 = 'finalresults';
       ch.assertQueue(q1, {durable: true});

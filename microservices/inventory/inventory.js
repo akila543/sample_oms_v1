@@ -5,7 +5,7 @@ const path = require('path')
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 // const url = 'mongodb://10.201.97.93:27017/oms'
-var url = 'mongodb://localhost:27017/inventory'
+var url = 'mongodb://admin:admin@ds117719.mlab.com:17719/inventory'
 
 const app = express()
 const server = http.createServer(app)

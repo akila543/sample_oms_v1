@@ -4,7 +4,7 @@ const express = require('express')
 const path = require('path')
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
-var url = 'mongodb://localhost:27017/trial'
+var url = 'mongodb://admin:admin@ds117759.mlab.com:17759/trial'
 // var url = 'mongodb://10.201.97.93:27017/trial'
 var request = require('superagent')
 var amqp = require('amqplib/callback_api');
@@ -84,7 +84,7 @@ app.get('/ors/order', (req, res) => {
             if (Object.keys(inventoryResponse.unFullfilledProducts).length == 0) {
               //full order satisfied
               //forward to order satisfied queue
-              amqp.connect('amqp://localhost', function(err, conn) {
+              amqp.connect('amqp://vnjjgaat:p4GSk4IMbZLpFQBRRsRuB7B3FoDkfpt0@skunk.rmq.cloudamqp.com/vnjjgaat', function(err, conn) {
                 conn.createChannel(function(err, ch) {
                   var q = 'orderSatisfiedQueue1';
                   var temp = new Array();
@@ -193,7 +193,7 @@ app.get('/ors/order', (req, res) => {
                 if (Object.keys(inventoryResponse.unFullfilledProducts).length == 0) {
                   //full order satisfied
                   //forward to order satisfied queue
-                  amqp.connect('amqp://localhost', function(err, conn) {
+                  amqp.connect('amqp://vnjjgaat:p4GSk4IMbZLpFQBRRsRuB7B3FoDkfpt0@skunk.rmq.cloudamqp.com/vnjjgaat', function(err, conn) {
                     conn.createChannel(function(err, ch) {
                       var q = 'orderSatisfiedQueue1';
                       var temp = new Array();
