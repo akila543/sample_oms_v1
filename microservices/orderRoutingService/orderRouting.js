@@ -8,6 +8,7 @@ var url = 'mongodb://admin:admin@ds117759.mlab.com:17759/trial'
 // var url = 'mongodb://10.201.97.93:27017/trial'
 var request = require('superagent')
 var amqp = require('amqplib/callback_api');
+var PORT = process.env.PORT || 1102;
 
 const app = express()
 const server = http.createServer(app)
@@ -252,7 +253,7 @@ app.get('/ors/order', (req, res) => {
     })
   })
 
-  server.listen(1102, err => {
+  server.listen(PORT, err => {
     if (err) {
       throw err
     }

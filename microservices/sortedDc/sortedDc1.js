@@ -19,6 +19,7 @@ const express = require('express')
     , request = require('superagent')
     , db = require('./../../db/connections/mongo.trial.js')
     , dcSchema = require('./../../db/models/dcs.schema.js')
+    , PORT = process.env.PORT || 1101
     , amqp = require('amqplib/callback_api');
 
 
@@ -119,7 +120,7 @@ db.once('open', function() {
 
 
 // sortedDC server
-server.listen(1101, function(err, reply){
+server.listen(PORT, function(err, reply){
   if (err) {
     console.log('server not listening!');
   } else {

@@ -5,7 +5,9 @@ const path = require('path')
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 // const url = 'mongodb://10.201.97.93:27017/oms'
-var url = 'mongodb://admin:admin@ds117719.mlab.com:17719/inventory'
+var url = 'mongodb://admin:admin@ds117719.mlab.com:17719/inventory';
+var PORT = process.env.PORT || 1103;
+
 
 const app = express()
 const server = http.createServer(app)
@@ -142,7 +144,7 @@ app.get('/inventory/check', (req, res) => {
   })
 })
 
-server.listen(1103, err => {
+server.listen(PORT, err => {
   if(err){
     throw err
   }
